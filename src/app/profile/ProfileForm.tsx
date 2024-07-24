@@ -3,11 +3,39 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import FilePreview from './FilePreview';
 
-function ProfileForm({ handleChange, handleProfileSave, profile, handleFileSelect, errors }) {
+// Define the types for profile and errors
+interface Profile {
+    profilePicture?: File | null;
+    firstName: string;
+    lastName: string;
+    email: string;
+}
 
+interface Errors {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+}
+
+// Define the props interface for the ProfileForm component
+interface ProfileFormProps {
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleProfileSave: () => void;
+    profile: Profile;
+    handleFileSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    errors: Errors;
+}
+
+const ProfileForm: React.FC<ProfileFormProps> = ({
+    handleChange,
+    handleProfileSave,
+    profile,
+    handleFileSelect,
+    errors
+}) => {
     return (
         <div className="h-auto bg-bg-primary rounded-[12px] gap-2">
             <div className="h-[739px] p-[40px] gap-[40px] flex flex-col">
