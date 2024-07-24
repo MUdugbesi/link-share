@@ -12,7 +12,12 @@ interface SavedLinkState {
 }
 
 const initialState: SavedLinkState = {
-    savedLinks: [],
+    savedLinks: [
+        {
+            id: "1",
+            platform: "Github"
+        }
+    ],
 
 };
 

@@ -10,11 +10,16 @@ interface Profile {
 }
 
 interface ProfileState {
-    profile: Profile  | null;
+    profile: Profile | null;
 }
 
 const initialState: ProfileState = {
-    profile: null
+    profile: {
+        firstName: 'Marvelous',
+        lastName: 'Udugbesi',
+        email: 'udugbesimarves@gmail.com',
+        profilePicture: null
+    }
 };
 
 const profileSlice = createSlice({
