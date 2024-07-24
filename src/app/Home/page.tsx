@@ -60,22 +60,19 @@ export default function HomePage() {
 
     return (
         <div className="grid grid-cols-[560px_808px] gap-[24px] h-[858px] justify-evenly">
-            {/* <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px]">
+            <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px]">
                 <div className="bg-[url('/preview.svg')] h-[631px] w-[307px] mx-auto mt-[101.5px] relative">
                     <div className="flex flex-col w-[237px] h-[514px] mx-auto top-[65px] left-[34px] absolute gap-[56px]">
                         <div className="w-full h-[158px]"></div>
                         <div className="flex flex-col w-full h-[300px] border gap-[20px]">
-                            {savedLinks.length > 0 ? (
+                            {
                                 savedLinks.map((link) => (
                                     <SavedLinkCard key={link.id} link={link} />
-                                ))
-                            ) : (
-                                <p className="text-center">No saved links</p>
-                            )}
+                                ))}
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
             <div className="h-auto bg-bg-primary rounded-[12px] gap-2">
                 <div className="h-auto p-[40px] gap-[40px] flex flex-col">
                     <div className="h-[80px] w-[728px] gap-[8px]">
@@ -102,7 +99,7 @@ export default function HomePage() {
                                 </div>
                             ) : (
                                 <div className="h-auto">
-                                    {links.length > 0 ? (links.map((item) => (
+                                    {links.map((item) => (
                                         <LinkCard
                                             key={item.id}
                                             link={item}
@@ -111,8 +108,7 @@ export default function HomePage() {
                                             handleSelect={handleSelect}
                                             selectedPlatform={selectedPlatform}
                                         />
-                                    ))) : ''
-                                    }
+                                    ))}
                                 </div>
                             )}
                         </div>
