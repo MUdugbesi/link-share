@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import SignupForm from './Signup'
 import { AuthProvider } from '@/context/authContext'
