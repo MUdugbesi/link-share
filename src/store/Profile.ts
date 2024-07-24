@@ -2,18 +2,18 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-// interface Profile {
-//     firstName: string;
-//     lastName: string;
-//     email: string;
-//     profilePicture?: File | null;
-// }
+interface Profile {
+    firstName: string;
+    lastName: string;
+    email: string;
+    profilePicture?: File | null;
+}
 
-// interface ProfileState {
-//     profile: Profile | null;
-// }
+interface ProfileState {
+    profile: Profile | null;
+}
 
-const initialState = {
+const initialState: ProfileState = {
     profile: []
 };
 
@@ -24,12 +24,9 @@ const profileSlice = createSlice({
         setUserProfile: (state, action) => {
             state.profile = action.payload;
         },
-        clearUserProfile: (state) => {
-            state.profile = [];
-        },
     },
 });
 
-export const { setUserProfile, clearUserProfile } = profileSlice.actions;
+export const { setUserProfile } = profileSlice.actions;
 
 export default profileSlice.reducer;
