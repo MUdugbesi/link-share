@@ -24,7 +24,7 @@ import EmailIcon from "../../../../public/email-icon.svg"
 import Link from "next/link";
 
 import { useAuth } from "@/context/authContext";
-import { doSignInWithEmailAndPassword } from "@/firebase/auth";
+import { doCreateUserWithEmailAndPassword, doSignInWithEmailAndPassword } from "@/firebase/auth";
 import { useState } from "react"
 import { redirect } from "next/navigation"
 
@@ -43,7 +43,7 @@ const SignupForm = () => {
     async function onSubmit(values: z.infer<typeof SignupFormSchema>) {
         if (!isRegistering) {
             setIsRegistering(true)
-            await doSignInWithEmailAndPassword(values.email, values.password)
+            await doCreateUserWithEmailAndPassword(values.email, values.password)
         }
     }
 
