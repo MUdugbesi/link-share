@@ -65,13 +65,13 @@ export default function HomePage() {
                     <div className="flex flex-col w-[237px] h-[514px] mx-auto top-[65px] left-[34px] absolute gap-[56px]">
                         <div className="w-full h-[158px]"></div>
                         <div className="flex flex-col w-full h-[300px] border gap-[20px]">
-                            {savedLinks.length > 0 ? (
+                            {/* {savedLinks.length > 0 ? (
                                 savedLinks.map((link) => (
                                     <SavedLinkCard key={link.id} link={link} />
                                 ))
                             ) : (
                                 <p className="text-center">No saved links</p>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>
