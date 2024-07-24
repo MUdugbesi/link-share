@@ -102,7 +102,7 @@ export default function HomePage() {
                                 </div>
                             ) : (
                                 <div className="h-auto">
-                                    {links.map((item) => (
+                                    {links.length > 0 ? (links.map((item) => (
                                         <LinkCard
                                             key={item.id}
                                             link={item}
@@ -111,7 +111,8 @@ export default function HomePage() {
                                             handleSelect={handleSelect}
                                             selectedPlatform={selectedPlatform}
                                         />
-                                    ))}
+                                    ))) : ''
+                                    }
                                 </div>
                             )}
                         </div>
