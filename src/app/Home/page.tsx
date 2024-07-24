@@ -90,7 +90,7 @@ export default function HomePage() {
                             + Add new link
                         </Button>
                         <div className={`w-full ${links.length > 0 ? 'min-h-[539px] h-auto' : 'h-[539px]'}`}>
-                            {links.length > 0 ? (
+                            {/* {links.length > 0 ? ( */}
                                 <div className="bg-bg-primary-2 w-[688px] h-[344px] mx-auto mt-[50px]">
                                     <div className="h-[160px] w-[249.53px] mx-auto">
                                         <Image src={Drag} alt="drag and drop link" width={249.53} height={160} />
@@ -100,7 +100,7 @@ export default function HomePage() {
                                         <p className="body_M">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We&apos;re here to help you share your profiles with everyone!</p>
                                     </div>
                                 </div>
-                            ) : (
+                            {/* ) : ( */}
                                 <div className="h-auto">
                                     {/* {links.length > 0 ? (links.map((item) => (
                                         <LinkCard
@@ -114,7 +114,7 @@ export default function HomePage() {
                                     ))) : ''
                                     } */}
                                 </div>
-                            )}
+                            {/* )} */}
                         </div>
                     </div>
                 </div>
