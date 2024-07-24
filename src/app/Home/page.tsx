@@ -12,6 +12,7 @@ import { addToPhone, removeFromPhone } from "@/store/SavedLinks";
 import SavedLinkCard from "@/components/SavedLinkCard";
 import { v4 as uuid } from "uuid";
 
+// Define the Link type
 interface Link {
     id: string;
     platform: string;
@@ -22,8 +23,8 @@ export default function HomePage() {
     const dispatch = useDispatch<AppDispatch>();
     const links = useSelector((state: RootState) => state.link.links);
     const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
-    const [url, setUrl] = useState("");
-    const [selectedPlatform, setSelectedPlatform] = useState("Github");
+    const [url, setUrl] = useState<string>("");
+    const [selectedPlatform, setSelectedPlatform] = useState<string>("Github");
     const [tempLinks, setTempLinks] = useState<Link[]>([]);
 
     const handleSelect = (platform: string) => {
@@ -31,22 +32,21 @@ export default function HomePage() {
     };
 
     const handleAddLinks = () => {
-     
-            const id = uuid();
-            const newLink = { id, platform: selectedPlatform, url };
-            dispatch(addLink(newLink)); 
-            setTempLinks(prevLinks => [...prevLinks, newLink]); 
-            setUrl(""); 
-        
+        if (url.trim() === "") return; // Prevent adding empty links
+
+        const id = uuid();
+        const newLink: Link = { id, platform: selectedPlatform, url };
+        dispatch(addLink(newLink));
+        setTempLinks(prevLinks => [...prevLinks, newLink]);
+        setUrl("");
     };
 
     const handleSaveLinks = () => {
         if (tempLinks.length > 0) {
-            
             tempLinks.forEach(link => {
-                dispatch(addToPhone(link)); 
+                dispatch(addToPhone(link));
             });
-            setTempLinks([]); 
+            setTempLinks([]);
         }
     };
 
