@@ -1,10 +1,13 @@
 import React from 'react'
 import SignupForm from './Signup'
+import { AuthProvider } from '@/context/authContext'
 
 const SignUp = () => {
     return (
         <div>
-            <SignupForm />
+            <AuthProvider>
+                <SignupForm />
+            </AuthProvider>
         </div>
     )
 }
