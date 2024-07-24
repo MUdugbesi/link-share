@@ -26,6 +26,7 @@ import Link from "next/link";
 import { useAuth } from "@/context/authContext";
 import { doSignInWithEmailAndPassword } from "@/firebase/auth";
 import { useState } from "react"
+import { redirect } from "next/navigation"
 
 const SignupForm = () => {
     const { userLoggedIn } = useAuth()
