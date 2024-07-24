@@ -20,10 +20,10 @@ const PreviewCard = () => {
                 <p className='text-center text-[black] text-[14px] font-[400]'>{userProfile.email}</p>
             </div>
             <div className='w-[237] min-h-[208px] h-auto flex gap-[20px] flex-col mt-[40px]'>
-                {savedLink.map((link) => {
+                {savedLink.map((link, i) => {
                     return (
 
-                        <SavedLinkCard link={link} />
+                        <SavedLinkCard link={link} key={i} />
                     )
                 })}
             </div>

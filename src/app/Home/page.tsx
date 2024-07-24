@@ -93,8 +93,8 @@ export default function HomePage() {
                                         <Image src={Drag} alt="drag and drop link" width={249.53} height={160} />
                                     </div>
                                     <div className="h-[144px] w-[488px] mx-auto text-center gap-[24px] flex flex-col">
-                                        <h3 className="heading_M">Let's get you started</h3>
-                                        <p className="body_M">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We're here to help you share your profiles with everyone!</p>
+                                        <h3 className="heading_M">Let&apos;s get you started</h3>
+                                        <p className="body_M">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We&apos;re here to help you share your profiles with everyone!</p>
                                     </div>
                                 </div>
                             ) : (
