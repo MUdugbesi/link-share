@@ -89,7 +89,7 @@ export default function HomePage() {
                         >
                             + Add new link
                         </Button>
-                        <div className={`w-full ${links.length ? 'min-h-[539px] h-auto' : 'h-[539px]'}`}>
+                        <div className={`w-full ${links.length > 0 ? 'min-h-[539px] h-auto' : 'h-[539px]'}`}>
                             {links.length > 0 ? (
                                 <div className="bg-bg-primary-2 w-[688px] h-[344px] mx-auto mt-[50px]">
                                     <div className="h-[160px] w-[249.53px] mx-auto">
@@ -102,7 +102,7 @@ export default function HomePage() {
                                 </div>
                             ) : (
                                 <div className="h-auto">
-                                    {links.length > 0 ? (links.map((item) => (
+                                    {/* {links.length > 0 ? (links.map((item) => (
                                         <LinkCard
                                             key={item.id}
                                             link={item}
@@ -112,7 +112,7 @@ export default function HomePage() {
                                             selectedPlatform={selectedPlatform}
                                         />
                                     ))) : ''
-                                    }
+                                    } */}
                                 </div>
                             )}
                         </div>
