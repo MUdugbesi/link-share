@@ -10,11 +10,11 @@ interface Profile {
 }
 
 interface ProfileState {
-    profile: Profile | null;
+    profile: Profile  | null;
 }
 
 const initialState: ProfileState = {
-    profile: []
+    profile: null
 };
 
 const profileSlice = createSlice({

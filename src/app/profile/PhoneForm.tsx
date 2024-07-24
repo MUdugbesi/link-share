@@ -11,7 +11,7 @@ interface Profile {
     firstName: string;
     lastName: string;
     email: string;
-    profilePicture?: File;
+    profilePicture?: File | null;
 }
 
 interface PhoneFormProps {

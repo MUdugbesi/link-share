@@ -1,28 +1,35 @@
-import React from 'react'
-import ForwardArrow from "../../public/forward-arrow.svg"
+import React from 'react';
 import Image from 'next/image';
+import ForwardArrow from '../../public/forward-arrow.svg';
 
-
-const SavedLinkCard = ({ link }) => {
-
-    return (
-        <div className='w-[234px] h-[44px]'>
-
-            {link.platform ?
-                <div className='bg-[black] flex h-full items-center justify-between p-[8px] rounded-lg'>
-                    <p className='text-[white]'>{link.platform}</p>
-                    <span>{link.url}</span>
-                    <Image src={ForwardArrow} alt="arrow" />
-                </div>
-                : link.platform === "Youtube" ?
-                    <div>
-                        <p>{link.platform}</p>
-                        <Image src={ForwardArrow} alt="arrow" />
-                    </div>
-                    : ""}
-
-        </div>
-    )
+//
+interface Link {
+    id: string,
+    platform: string;
+    url?: string;
 }
 
-export default SavedLinkCard
+interface SavedLinkCardProps {
+    link: Link;
+}
+
+const SavedLinkCard: React.FC<SavedLinkCardProps> = ({ link }) => {
+    return (
+        <div className='w-[234px] h-[44px]'>
+            {link.platform ? (
+                <div className='bg-[black] flex h-full items-center justify-between p-[8px] rounded-lg'>
+                    <p className='text-[white]'>{link.platform}</p>
+                    {link.url && <span>{link.url}</span>}
+                    <Image src={ForwardArrow} alt="arrow" />
+                </div>
+            ) : link.platform === "Youtube" ? (
+                <div className='flex items-center'>
+                    <p>{link.platform}</p>
+                    <Image src={ForwardArrow} alt="arrow" />
+                </div>
+            ) : null}
+        </div>
+    );
+};
+
+export default SavedLinkCard;
