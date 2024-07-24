@@ -1,18 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Drag from "../../../public/drag.svg";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/store";
-import LinkCard from "@/components/LinkCard";
 import { addLink, removeLink } from '@/store/Link';
 import { addToPhone, removeFromPhone } from "@/store/SavedLinks";
+import LinkCard from "@/components/LinkCard";
 import SavedLinkCard from "@/components/SavedLinkCard";
 import { v4 as uuid } from "uuid";
+import { useState } from "react";
+import Image from "next/image";
+import Drag from "../../../public/drag.svg";
+import { Button } from "@/components/ui/button";
 
-// Define the Link type
 interface Link {
     id: string;
     platform: string;
@@ -21,8 +20,8 @@ interface Link {
 
 export default function HomePage() {
     const dispatch = useDispatch<AppDispatch>();
-    const links = useSelector((state: RootState) => state.link.links);
-    const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
+    const links = useSelector((state: RootState) => state.link?.links || []);
+    const savedLinks = useSelector((state: RootState) => state.savedLink?.savedLinks || []);
     const [url, setUrl] = useState<string>("");
     const [selectedPlatform, setSelectedPlatform] = useState<string>("Github");
     const [tempLinks, setTempLinks] = useState<Link[]>([]);
@@ -66,9 +65,13 @@ export default function HomePage() {
                     <div className="flex flex-col w-[237px] h-[514px] mx-auto top-[65px] left-[34px] absolute gap-[56px]">
                         <div className="w-full h-[158px]"></div>
                         <div className="flex flex-col w-full h-[300px] border gap-[20px]">
-                            {savedLinks.map((link) => (
-                                <SavedLinkCard key={link.id} link={link} />
-                            ))}
+                            {savedLinks.length > 0 ? (
+                                savedLinks.map((link) => (
+                                    <SavedLinkCard key={link.id} link={link} />
+                                ))
+                            ) : (
+                                <p className="text-center">No saved links</p>
+                            )}
                         </div>
                     </div>
                 </div>

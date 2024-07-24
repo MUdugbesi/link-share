@@ -27,18 +27,12 @@ const LinkSlice = createSlice({
         addLink: (state, action: PayloadAction<Link>) => {
             state.links.push(action.payload);
         },
-        updateLink: (state, action: PayloadAction<Link>) => {
-            const index = state.links.findIndex(link => link.id === action.payload.id);
-            if (index !== -1) {
-                state.links[index] = action.payload;
-            }
-        },
         removeLink: (state, action: PayloadAction<string>) => {
             state.links = state.links.filter(link => link.id !== action.payload);
         },
     },
 });
 
-export const { addLink, updateLink, removeLink } = LinkSlice.actions;
+export const { addLink, removeLink } = LinkSlice.actions;
 
 export default LinkSlice.reducer;

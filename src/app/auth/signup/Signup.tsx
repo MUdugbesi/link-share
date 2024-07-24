@@ -116,7 +116,7 @@ const SignupForm = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="bg-bg-btn h-[46px] text-[white] heading_S">Login</Button>
+                            <Button type="submit" className="bg-bg-btn h-[46px] text-[white] heading_S">Register</Button>
                             <span className="body_M text-center">Already have an account? <Link href='/auth/login' className="text-bg-btn">Login</Link></span>
                         </form>
                     </Form>
