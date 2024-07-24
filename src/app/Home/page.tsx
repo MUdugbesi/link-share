@@ -20,8 +20,8 @@ interface Link {
 
 export default function HomePage() {
     const dispatch = useDispatch<AppDispatch>();
-    const links = useSelector((state) => state.link.links);
-    const savedLinks = useSelector((state) => state.savedLink.savedLinks);
+    const links = useSelector((state: RootState) => state.link.links);
+    const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
     const [url, setUrl] = useState<string>("");
     const [selectedPlatform, setSelectedPlatform] = useState<string>("Github");
     const [tempLinks, setTempLinks] = useState<Link[]>([]);
@@ -60,7 +60,7 @@ export default function HomePage() {
 
     return (
         <div className="grid grid-cols-[560px_808px] gap-[24px] h-[858px] justify-evenly">
-            <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px]">
+            {/* <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px]">
                 <div className="bg-[url('/preview.svg')] h-[631px] w-[307px] mx-auto mt-[101.5px] relative">
                     <div className="flex flex-col w-[237px] h-[514px] mx-auto top-[65px] left-[34px] absolute gap-[56px]">
                         <div className="w-full h-[158px]"></div>
@@ -75,7 +75,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="h-auto bg-bg-primary rounded-[12px] gap-2">
                 <div className="h-auto p-[40px] gap-[40px] flex flex-col">
                     <div className="h-[80px] w-[728px] gap-[8px]">
