@@ -9,7 +9,7 @@ import { AuthProvider } from '@/context/authContext';
 
 const HomePage = () => {
     return (
-        <div className=''>
+        <div>
             <Provider store={store}>
                 <AuthProvider>
                     <NavBar />
