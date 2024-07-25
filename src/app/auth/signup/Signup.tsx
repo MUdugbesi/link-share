@@ -24,12 +24,15 @@ import EmailIcon from "../../../../public/email-icon.svg"
 import Link from "next/link";
 
 import { useAuth } from "@/context/authContext";
-import { doCreateUserWithEmailAndPassword, doSignInWithEmailAndPassword } from "@/firebase/auth";
+import { doCreateUserWithEmailAndPassword } from "@/firebase/auth";
 import { useState } from "react"
-import { redirect } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const SignupForm = () => {
-    const { userLoggedIn } = useAuth()
+    const { userLoggedIn } = useAuth();
+    const router = useRouter();
     const [isRegistering, setIsRegistering] = useState(false);
 
     const form = useForm<z.infer<typeof SignupFormSchema>>({
@@ -43,13 +46,20 @@ const SignupForm = () => {
     async function onSubmit(values: z.infer<typeof SignupFormSchema>) {
         if (!isRegistering) {
             setIsRegistering(true)
-            await doCreateUserWithEmailAndPassword(values.email, values.password)
+            const created = await doCreateUserWithEmailAndPassword(values.email, values.password)
+            if (created) {
+                toast.success('Account created successfully')
+                router.push('/auth/login')
+            } else {
+                toast.error("Sign up failed, retry again")
+
+            }
         }
     }
 
     return (
         <>
-            {userLoggedIn && (redirect('/'))}
+            {!userLoggedIn && (redirect('/'))}
             <div className="flex flex-col w-[476px] h-[709px] mx-auto gap-[51px] justify-between mt-[206px]">
 
                 <div className="flex w-[182.5px] h-[40px] justify-evenly mx-auto">

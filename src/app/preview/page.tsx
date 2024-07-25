@@ -8,7 +8,7 @@ import { store } from "@/store";
 
 const PreviewPage = () => {
     return (
-        <div className=''>
+        <div>
             <Provider store={store}>
                 <NavBar />
                 <PreviewCard />

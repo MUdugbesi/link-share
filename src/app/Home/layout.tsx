@@ -7,7 +7,6 @@ export default function Layout({
 }>) {
     return (
         <div>
-            <p>Working</p>
             {children}
         </div>
     );

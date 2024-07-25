@@ -5,12 +5,15 @@ import React from 'react'
 import { Provider } from "react-redux";
 import { store } from "@/store";
 import Home from './Home';
+import { AuthProvider } from '@/context/authContext';
 
 const HomePage = () => {
     return (
         <div className=''>
             <Provider store={store}>
-                <Home />
+                <AuthProvider>
+                    <Home />
+                </AuthProvider>
             </Provider>
         </div>
     )

@@ -1,37 +1,36 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+import Image from "next/image";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { LoginFormSchema } from "@/lib/FormSchema";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form"
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
-import Logo from "../../../../public/dev_logo.svg"
-import DevLink from "../../../../public/devlinks.svg"
-import PasswordIcon from "../../../../public/password-icon.svg"
-import EmailIcon from "../../../../public/email-icon.svg"
-import Link from "next/link"
-import { doSignInWithEmailAndPassword } from "@/firebase/auth"
-import { useAuth } from "@/context/authContext"
-import { useState } from "react";
-import { redirect } from 'next/navigation'
+import Logo from "../../../../public/dev_logo.svg";
+import DevLink from "../../../../public/devlinks.svg";
+import PasswordIcon from "../../../../public/password-icon.svg";
+import EmailIcon from "../../../../public/email-icon.svg";
+import Link from "next/link";
+import { doSignInWithEmailAndPassword } from "@/firebase/auth";
+import { useAuth } from "@/context/authContext";
+import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const LoginForm = () => {
-
     const { userLoggedIn } = useAuth();
-    const [isSigningIn, setIsSigningIn] = useState(false)
+    const [isSigningIn, setIsSigningIn] = useState(false);
+    const router = useRouter();
 
     const form = useForm<z.infer<typeof LoginFormSchema>>({
         resolver: zodResolver(LoginFormSchema),
@@ -39,77 +38,77 @@ const LoginForm = () => {
             email: "",
             password: ""
         },
-    })
+    });
 
     async function onSubmit(values: z.infer<typeof LoginFormSchema>) {
         if (!isSigningIn) {
-            setIsSigningIn(true)
-            await doSignInWithEmailAndPassword(values.email, values.password)
+            setIsSigningIn(true);
+            await doSignInWithEmailAndPassword(values.email, values.password);
+            toast.success('Login in successful')
+            router.push('/')
+        } else {
+            toast.error("Login failed. Please try again.")
         }
     }
 
+    useEffect(() => {
+        if (!userLoggedIn) {
+            router.push('/');
+        }
+    }, [userLoggedIn, router]);
+
     return (
-        <>
-            {userLoggedIn && (redirect('/'))}
-            <div className="flex flex-col w-[476px] h-[573px] mx-auto gap-[51px] justify-between mt-[206px]">
-
-                <div className="flex w-[182.5px] h-[40px] justify-evenly mx-auto">
-                    <Image src={Logo} alt="Logo" width={33} height={33} />
-                    <Image src={DevLink} alt="Logo" width={135} height={26.25} />
-                </div>
-
-
-                <div className="flex flex-col h-[482px] w-full mx-auto rounded-[12px] bg-bg-primary justify-evenly">
-                    <div className="h-[80px] w-[396px] mx-auto gap-[8px] flex flex-col">
-                        <h2 className="heading_M">Login</h2>
-                        <span className="body_M">Add your details below to get back into the app</span>
-                    </div>
-
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[24px] mx-auto w-[396px] h-[282px]">
-                            <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="body_S">Email Adresss</FormLabel>
-                                        <FormControl>
-                                            <div className="flex relative">
-                                                <Image src={EmailIcon} alt="password" className="absolute top-[20px] left-[18px]" width={13} height={10} />
-                                                <Input placeholder="e.g. alex@email.com" className="h-[48px] placeholder:w-[368px] placeholder:h-[24px] pl-[40px]" {...field} />
-                                                <FormMessage className="body_S absolute right-0 mt-[15px] pr-[12px]" />
-                                            </div>
-                                        </FormControl>
-
-                                    </FormItem>
-                                )}
-                            />
-
-                            <FormField
-                                control={form.control}
-                                name="password"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="body_S">Password</FormLabel>
-                                        <FormControl>
-                                            <div className="flex relative">
-                                                <Image src={PasswordIcon} alt="password" className="absolute top-[15px] left-[18px]" width={12} height={13.5} />
-                                                <Input type="password" placeholder="Enter your password" className="h-[48px] placeholder:w-[368px] placeholder:h-[24px] pl-[40px]" {...field} />
-                                                <FormMessage className="body_S absolute right-0 mt-[15px] pr-[12px]" />
-                                            </div>
-                                        </FormControl>
-                                    </FormItem>
-                                )}
-                            />
-                            <Button type="submit" className="bg-bg-btn h-[46px] text-[white] heading_S">Login</Button>
-                            <span className="body_M text-center">Don`t have an account? <Link href='/auth/signup' className="text-bg-btn">Create account</Link></span>
-                        </form>
-
-                    </Form>
-                </div>
+        <div className="flex flex-col w-[476px] h-[573px] mx-auto gap-[51px] justify-between mt-[206px]">
+            <div className="flex w-[182.5px] h-[40px] justify-evenly mx-auto">
+                <Image src={Logo} alt="Logo" width={33} height={33} />
+                <Image src={DevLink} alt="Logo" width={135} height={26.25} />
             </div>
-        </>
-    )
+            <div className="flex flex-col h-[482px] w-full mx-auto rounded-[12px] bg-bg-primary justify-evenly">
+                <div className="h-[80px] w-[396px] mx-auto gap-[8px] flex flex-col">
+                    <h2 className="heading_M">Login</h2>
+                    <span className="body_M">Add your details below to get back into the app</span>
+                </div>
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[24px] mx-auto w-[396px] h-[282px]">
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="body_S">Email Adresss</FormLabel>
+                                    <FormControl>
+                                        <div className="flex relative">
+                                            <Image src={EmailIcon} alt="email" className="absolute top-[20px] left-[18px]" width={13} height={10} />
+                                            <Input placeholder="e.g. alex@email.com" className="h-[48px] placeholder:w-[368px] placeholder:h-[24px] pl-[40px]" {...field} />
+                                            <FormMessage className="body_S absolute right-0 mt-[15px] pr-[12px]" />
+                                        </div>
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="body_S">Password</FormLabel>
+                                    <FormControl>
+                                        <div className="flex relative">
+                                            <Image src={PasswordIcon} alt="password" className="absolute top-[15px] left-[18px]" width={12} height={13.5} />
+                                            <Input type="password" placeholder="Enter your password" className="h-[48px] placeholder:w-[368px] placeholder:h-[24px] pl-[40px]" {...field} />
+                                            <FormMessage className="body_S absolute right-0 mt-[15px] pr-[12px]" />
+                                        </div>
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                        <Button type="submit" className="bg-bg-btn h-[46px] text-[white] heading_S">Login</Button>
+                        <span className="body_M text-center">Don`t have an account? <Link href='/auth/signup' className="text-bg-btn">Create account</Link></span>
+                    </form>
+                </Form>
+            </div>
+        </div>
+    );
 }
 
-export default LoginForm
+export default LoginForm;
