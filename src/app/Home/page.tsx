@@ -20,8 +20,8 @@ interface Link {
 
 export default function HomePage() {
     const dispatch = useDispatch<AppDispatch>();
-    const links = useSelector((state: RootState) => state.link.links);
-    const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
+    // const links = useSelector((state: RootState) => state.link.links);
+    // const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
     const [url, setUrl] = useState<string>("");
     const [selectedPlatform, setSelectedPlatform] = useState<string>("Github");
     const [tempLinks, setTempLinks] = useState<Link[]>([]);
