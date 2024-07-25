@@ -55,11 +55,7 @@ const LoginForm = () => {
         }
     }
 
-    useEffect(() => {
-        if (userLoggedIn) {
-            router.push('/home');
-        }
-    }, [userLoggedIn, router]);
+    
 
     return (
         <div className="flex flex-col w-full max-w-md h-auto mx-auto gap-8 justify-between mt-16 p-4">
