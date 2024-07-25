@@ -24,7 +24,7 @@ export default function HomePage() {
     // const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
     const [url, setUrl] = useState<string>("");
     const [selectedPlatform, setSelectedPlatform] = useState<string>("Github");
-    const [tempLinks, setTempLinks] = useState<Link[]>([]);
+    // const [tempLinks, setTempLinks] = useState<Link[]>([]);
 
     const handleSelect = (platform: string) => {
         setSelectedPlatform(platform);
@@ -36,16 +36,16 @@ export default function HomePage() {
         const id = uuid();
         const newLink: Link = { id, platform: selectedPlatform, url };
         dispatch(addLink(newLink));
-        setTempLinks(prevLinks => [...prevLinks, newLink]);
+        // setTempLinks(prevLinks => [...prevLinks, newLink]);
         setUrl("");
     };
 
     const handleSaveLinks = () => {
-        if (tempLinks.length > 0) {
-            tempLinks.forEach(link => {
-                dispatch(addToPhone(link));
-            });
-            setTempLinks([]);
+        // if (tempLinks.length > 0) {
+        //     tempLinks.forEach(link => {
+        //         dispatch(addToPhone(link));
+        //     });
+        //     setTempLinks([]);
         }
     };
 
@@ -54,7 +54,7 @@ export default function HomePage() {
     };
 
     const handleRemoveLinks = (id: string) => {
-        dispatch(removeFromPhone(id));
+        // dispatch(removeFromPhone(id));
         dispatch(removeLink(id));
     };
 
@@ -127,3 +127,11 @@ export default function HomePage() {
         // </div>
     );
 }
+function setUrl(value: string) {
+    throw new Error("Function not implemented.");
+}
+
+function dispatch(arg0: { payload: string; type: "link/removeLink"; }) {
+    throw new Error("Function not implemented.");
+}
+
