@@ -97,8 +97,8 @@ export default function Home() {
                         {!links.length ? (
                             <div className="bg-bg-primary-2 w-full h-full mx-auto mt-4 md:mt-8 lg:mt-12 flex flex-col items-center justify-center text-center">
                                 <Image src='/drag.svg' alt="drag and drop link" width={150} height={100} className="mb-4 md:mb-8" />
-                                <h3 className="text-xl lg:text-2xl font-semibold">Let's get you started</h3>
-                                <p className="text-base lg:text-lg text-gray-500">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We're here to help you share your profiles with everyone!</p>
+                                <h3 className="text-xl lg:text-2xl font-semibold">Let&apos;s get you started</h3>
+                                <p className="text-base lg:text-lg text-gray-500">Use the “Add new link” button to get started. Once you have more than one link, you can reorder and edit them. We&apos;re here to help you share your profiles with everyone!</p>
                             </div>
                         ) : (
                             <div className="h-auto">
