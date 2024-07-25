@@ -59,7 +59,13 @@ export default function Home() {
         dispatch(removeLink(id));
     };
 
-    
+    useEffect(() => {
+        if (!userLoggedIn) {
+            router.push('/auth/login');
+        } else {
+            return
+        }
+    }, [userLoggedIn, router]);
 
     return (
         <div className="flex flex-col md:grid md:grid-cols-1 lg:grid-cols-[560px_808px] gap-6 md:gap-8 lg:gap-12 h-auto justify-evenly p-4 lg:p-0">

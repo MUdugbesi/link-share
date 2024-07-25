@@ -60,7 +60,7 @@ const SignupForm = () => {
 
     return (
         <>
-            {userLoggedIn ? null : (
+            {!userLoggedIn ? null : (
                 <div className="flex flex-col w-[476px] h-[709px] mx-auto gap-[51px] justify-between mt-[206px]">
                     <div className="flex w-[182.5px] h-[40px] justify-evenly mx-auto">
                         <Image src={Logo} alt="Logo" width={33} height={33} />
