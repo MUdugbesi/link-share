@@ -45,17 +45,12 @@ const LoginForm = () => {
             setIsSigningIn(true);
             await doSignInWithEmailAndPassword(values.email, values.password);
             toast.success('Login in successful')
-            router.push('/')
+            router.push('/home')
+
         } else {
             toast.error("Login failed. Please try again.")
         }
     }
-
-    useEffect(() => {
-        if (!userLoggedIn) {
-            router.push('/');
-        }
-    }, [userLoggedIn, router]);
 
     return (
         <div className="flex flex-col w-[476px] h-[573px] mx-auto gap-[51px] justify-between mt-[206px]">

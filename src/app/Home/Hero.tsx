@@ -7,11 +7,11 @@ import { addToPhone, removeFromPhone } from "@/store/SavedLinks";
 import LinkCard from "@/components/LinkCard";
 import SavedLinkCard from "@/components/SavedLinkCard";
 import { v4 as uuid } from "uuid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/authContext";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface Link {
     id: string;
@@ -34,8 +34,6 @@ export default function Home() {
     };
 
     const handleAddLinks = () => {
-        if (url.trim() === "") return;
-
         const id = uuid();
         const newLink: Link = { id, platform: selectedPlatform, url };
         dispatch(addLink(newLink));
@@ -60,10 +58,18 @@ export default function Home() {
         dispatch(removeFromPhone(id));
         dispatch(removeLink(id));
     };
+    useEffect(() => {
+        if (!userLoggedIn) {
+            router.push('/auth/login');
+        } else {
+            router.push('/home')
+
+        }
+    }, [userLoggedIn, router]);
 
     return (
         <>
-            {!userLoggedIn && router.push('/auth/login')}
+
             <div className="grid grid-cols-[560px_808px] gap-[24px] h-[858px] justify-evenly">
                 <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px]">
                     <div className="bg-[url('/preview.svg')] h-[631px] w-[307px] mx-auto mt-[101.5px] relative">
@@ -92,7 +98,7 @@ export default function Home() {
                                 + Add new link
                             </Button>
                             <div className={`w-full ${links.length > 0 ? 'min-h-[539px] h-auto' : 'h-[539px]'}`}>
-                                {links.length > 0 ? (
+                                {!links.length ? (
                                     <div className="bg-bg-primary-2 w-[688px] h-[344px] mx-auto mt-[50px]">
                                         <div className="h-[160px] w-[249.53px] mx-auto">
                                             <Image src='/drag.svg' alt="drag and drop link" width={249.53} height={160} />

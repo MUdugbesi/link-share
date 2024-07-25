@@ -15,7 +15,7 @@ export interface LinkState {
 
 const initialState: LinkState = {
     links: [
-        { id: "1", platform: 'Github', url: 'https://www.github.com' }
+       
     ],
 
 };

@@ -6,19 +6,15 @@ interface Profile {
     firstName: string;
     lastName: string;
     email: string;
-    profilePicture?: File;
+    profilePicture?: File | null;
 }
 
 interface ProfileState {
-    profile: Profile;
+    profile: Profile  | null;
 }
 
 const initialState: ProfileState = {
-    profile: {
-        firstName: 'Marvelous',
-        lastName: 'Udugbesi',
-        email: 'udugbesimarves@gmail.com',
-    }
+    profile: null
 };
 
 const profileSlice = createSlice({
