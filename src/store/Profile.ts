@@ -6,11 +6,11 @@ interface Profile {
     firstName: string;
     lastName: string;
     email: string;
-    profilePicture?: File | null;
+    profilePicture?: File;
 }
 
 interface ProfileState {
-    profile: Profile | null;
+    profile: Profile;
 }
 
 const initialState: ProfileState = {
@@ -18,7 +18,6 @@ const initialState: ProfileState = {
         firstName: 'Marvelous',
         lastName: 'Udugbesi',
         email: 'udugbesimarves@gmail.com',
-        profilePicture: null
     }
 };
 

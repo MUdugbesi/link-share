@@ -8,7 +8,7 @@ interface Link {
 }
 
 
-interface LinkState {
+export interface LinkState {
     links: Link[];
 
 }

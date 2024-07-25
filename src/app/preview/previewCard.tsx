@@ -5,7 +5,6 @@ import FilePreview from '../profile/FilePreview';
 import SavedLinkCard from '@/components/SavedLinkCard';
 
 const PreviewCard = () => {
-    // Ensure proper typing of userProfile and savedLinks
     const userProfile = useSelector((state: RootState) => state.profile.profile);
     const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
 
