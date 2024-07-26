@@ -37,17 +37,17 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
     errors
 }) => {
     return (
-        <div className="h-auto bg-bg-primary rounded-[12px] gap-2">
+        <div className="h-auto bg-bg-primary rounded-[12px] gap-2 max-sm:w-[375px]">
             <div className="h-[739px] p-[40px] gap-[40px] flex flex-col">
-                <div className="h-[80px] w-[728px] gap-[8px]">
+                <div className="h-[80px] w-[311px] md:w-[728px] gap-[8px]">
                     <h2 className="heading_M">Profile Details</h2>
                     <p className="body_M">Add your details to create a personal touch to your profile.</p>
                 </div>
 
-                <div className="flex w-[728px] h-auto gap-[24px] bg-bg-primary-2 rounded-[12px]">
-                    <div className='w-[688px] h-[233px] mx-auto grid grid-cols-[240px_432px] gap-[16px] items-center'>
+                <div className="flex md:w-[728px] w-[311px] h-auto gap-[24px] bg-bg-primary-2 rounded-[12px]">
+                    <div className='w-[688px] md:h-[233px] h-[255px] mx-auto grid md:grid-cols-[240px_432px] gap-[16px] items-center'>
                         <p className='body_M w-[240px]'>Profile Picture</p>
-                        <div className='flex h-[193px] w-[432px] gap-[24px] items-center'>
+                        <div className='flex max-sm:flex-col h-[193px] w-[432px] gap-[24px] md:items-center'>
                             <div className='h-[193px] w-[193px] rounded-lg bg-bg-btn-2 flex justify-center items-center relative'>
                                 {!profile.profilePicture ? (
                                     <label htmlFor='dropzone'>
@@ -68,13 +68,13 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
                     </div>
                 </div>
 
-                <div className="flex w-[728px] h-auto bg-bg-primary-2 rounded-[12px]">
-                    <div className='w-[688px] h-[233px] mx-auto flex flex-col justify-evenly'>
-                        <div className='w-full h-[48px] bg-bg-primary-2 flex justify-between items-center'>
+                <div className="flex md:w-[728px] w-[311px] h-auto bg-bg-primary-2 rounded-[12px]">
+                    <div className='md:w-[688px] w-[311px] h-[233px] mx-auto flex flex-col justify-evenly'>
+                        <div className='w-full h-[48px] bg-bg-primary-2 flex max-sm:flex-col justify-between md:items-center max-sm:mb-[40px]'>
                             <p className='body_M'>First name <sup>*</sup></p>
                             <div className='flex flex-col'>
                                 <Input
-                                    className='w-[432px] h-[48px]'
+                                    className='md:w-[432px] h-[48px]'
                                     placeholder='e.g. John'
                                     name='firstName'
                                     value={profile.firstName}
@@ -84,11 +84,11 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
                                 {errors.firstName && <p className="text-text-red text-xs mt-1">{errors.firstName}</p>}
                             </div>
                         </div>
-                        <div className='w-full h-[48px] bg-bg-primary-2 flex justify-between items-center'>
+                        <div className='w-full h-[48px] bg-bg-primary-2 flex max-sm:flex-col justify-between md:items-center max-sm:mb-[40px]'>
                             <p className='body_M'>Last name <sup>*</sup></p>
                             <div className='flex flex-col'>
                                 <Input
-                                    className='w-[432px] h-[48px]'
+                                    className='md:w-[432px] h-[48px]'
                                     placeholder='e.g. Appeased'
                                     name='lastName'
                                     value={profile.lastName}
@@ -98,11 +98,11 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
                                 {errors.lastName && <p className="text-text-red text-xs mt-1">{errors.lastName}</p>}
                             </div>
                         </div>
-                        <div className='w-full h-[48px] bg-bg-primary-2 flex justify-between items-center'>
+                        <div className='w-full h-[48px] bg-bg-primary-2 flex max-sm:flex-col justify-between md:items-center'>
                             <p className='body_M'>Email<sup>*</sup></p>
                             <div className='flex flex-col'>
                                 <Input
-                                    className='w-[432px] h-[48px]'
+                                    className='md:w-[432px] h-[48px]'
                                     placeholder='e.g. email@example.com'
                                     name='email'
                                     type='email'
@@ -117,8 +117,8 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
                 </div>
 
             </div>
-            <div className="h-[95px] border-t border-bg-primary-3 w-full flex justify-end items-center pr-[40px]">
-                <Button className='bg-bg-btn-2 w-[91px] h-[46px] text-bg-primary gap-[8px] hover:bg-bg-btn' onClick={handleProfileSave}>Save</Button>
+            <div className="h-[95px] border-t border-bg-primary-3 w-full flex justify-end items-center md:pr-[40px]">
+                <Button className='bg-bg-btn-2 w-[311px] max-sm:mx-auto md:w-[91px] h-[46px] text-bg-primary gap-[8px] hover:bg-bg-btn' onClick={handleProfileSave}>Save</Button>
             </div>
         </div>
     );

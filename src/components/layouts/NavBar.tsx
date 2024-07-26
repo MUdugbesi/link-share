@@ -17,15 +17,15 @@ const NavBar = () => {
         <>
 
             {!pathname.includes('preview') ?
-                <nav className='w-[1392px] h-[78px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] flex items-center'>
+                <nav className='w-[1392px] h-[78px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] lg:flex items-center hidden'>
                     <ul className='w-[1352px] mx-auto h-[46px] flex justify-between'>
                         <div className='flex w-[146px] 32px items-center'>
                             <Image src={DevLogo} alt="Logo" width={26.67} height={26.67} />
                             <Image src={DevLink} alt="Logo" width={108} height={21} />
                         </div>
                         <div className='w-[325px] h-[46px] flex gap-[16px]'>
-                            <Link href='/home' className={`flex items-center justify-center gap-[8px] heading_S w-[122px] h-full ${pathname.includes('/home') ? `rounded-lg bg-bg-btn-2  text-bg-btn` : `hover:bg-bg-btn-2`}`}><Image src={LinkIcon} alt='link' />Links</Link>
-                            <Link href='/profile' className={`w-[187px] flex justify-center items-center gap-[8px] ${pathname.startsWith('/profile') ? `rounded-lg bg-bg-btn-2  text-bg-btn` : ``}`}>
+                            <Link href='/home' className={`flex items-center justify-center gap-[8px] heading_S w-[122px] h-full rounded-lg ${pathname.includes('/home') ? ` bg-bg-btn-2  text-bg-btn` : `hover:bg-bg-btn-2`}`}><Image src={LinkIcon} alt='link' />Links</Link>
+                            <Link href='/profile' className={`w-[187px] flex justify-center items-center gap-[8px] ${pathname.includes('/profile') ? `rounded-lg bg-bg-btn-2  text-bg-btn` : ``}`}>
                                 <Image src={ProfileIcon} alt='profile' />
                                 <span className='heading_S'>Profile Details</span>
                             </Link>
@@ -34,7 +34,7 @@ const NavBar = () => {
                     </ul>
                 </nav>
                 :
-                <div className='bg-bg-btn w-[1440px] h-[357px] flex rounded-bl-[32px] rounded-br-[32px] z-0 mx-auto'>
+                <div className='bg-bg-btn w-[1440px] h-[357px] rounded-bl-[32px] rounded-br-[32px] z-0 mx-auto hidden md:flex'>
                     <nav className='w-[1392px] h-[78px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] flex items-center'>
                         <ul className='w-[1352px] mx-auto h-[46px] flex justify-between'>
                             <Link href='/profile' className='flex items-center justify-center heading_S border rounded-lg border-bg-btn w-[122px] h-full text-bg-btn gap-[8px] hover:bg-bg-btn-2'>Back to Editor</Link>
@@ -44,8 +44,32 @@ const NavBar = () => {
                 </div >
 
             }
+            {!pathname.includes('preview') ?
+                <nav className='w-[375px] h-[74px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] flex md:hidden items-center'>
+                    <ul className='w-[335px] mx-auto h-[46px] flex justify-between'>
+                        <div className='flex items-center'>
+                            <Image src={DevLogo} alt="Logo" width={26.67} height={26.67} />
+                        </div>
+                        <div className='w-[148px] h-[46px] flex gap-[16px]'>
+                            <Link href='/home' className={`flex items-center justify-center gap-[8px] heading_S w-[74px] h-full rounded-lg ${pathname.includes('/home') ? ` bg-bg-btn-2  text-bg-btn` : `hover:bg-bg-btn-2`}`}><Image src={LinkIcon} alt='link' /></Link>
+                            <Link href='/profile' className={`w-[74px] flex justify-center items-center gap-[8px] ${pathname.includes('/profile') ? `rounded-lg bg-bg-btn-2  text-bg-btn` : ``}`}>
+                                <Image src={ProfileIcon} alt='profile' />
+                            </Link>
+                        </div>
+                        <Link href='/preview' className='flex items-center justify-center border rounded-lg border-bg-btn w-[52px] h-full text-bg-btn hover:bg-bg-btn-2'><Image src="/eye.svg" alt='eye icon' width={19.38} height={13.12} /></Link>
+                    </ul>
+                </nav>
+                :
+                <div className='w-[375px] h-[78px] flex rounded-bl-[32px] rounded-br-[32px] z-0 mx-auto'>
+                    <nav className='w-[311px] h-[78px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] flex items-center'>
+                        <ul className='w-full h-[46px] flex justify-between gap-2'>
+                            <Link href='/profile' className='flex items-center justify-center heading_S border rounded-lg border-bg-btn w-[159px] h-full text-bg-btn gap-[8px] hover:bg-bg-btn-2'>Back to Editor</Link>
+                            <Link href='' className='flex items-center justify-center heading_S border rounded-lg bg-bg-btn w-[159px] h-full text-bg-primary  gap-[8px] hover:opacity-80'>Share Link</Link>
+                        </ul>
+                    </nav>
+                </div >
 
-
+            }
         </>
     )
 }

@@ -22,7 +22,7 @@ const Profile = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if (userLoggedIn) {
+        if (!userLoggedIn) {
             router.push('/auth/login');
         } else {
             return;
@@ -111,12 +111,20 @@ const Profile = () => {
 
 
     return (
+        <>
+            {userLoggedIn &&
+                <div className="w-[1440px] mx-auto">
+                    <div className="grid grid-cols-[560px_808px] gap-[24px] h-[858px] justify-evenly">
+                        <PhoneForm profile={savedProfile} />
+                        <ProfileForm handleChange={handleChange} handleProfileSave={handleProfileSave} profile={profile} handleFileSelect={handleFileSelect} errors={errors} />
+                    </div>
+                </div>
 
-        <div className="grid grid-cols-[560px_808px] gap-[24px] h-[858px] justify-evenly">
-            <PhoneForm profile={savedProfile} />
-            <ProfileForm handleChange={handleChange} handleProfileSave={handleProfileSave} profile={profile} handleFileSelect={handleFileSelect} errors={errors} />
-        </div>
+            }
+
+        </>
     )
+
 }
 
 export default Profile

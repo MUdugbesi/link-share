@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrument_Sans.className} flex min-h-screen flex-col min-w-[1440px] mx-auto`}>
+      <body className={`${instrument_Sans.className} w-screen h-screen`}>
         {children}
       </body>
     </html>

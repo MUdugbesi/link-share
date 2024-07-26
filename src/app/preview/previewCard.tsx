@@ -9,19 +9,20 @@ import { useAuth } from '@/context/authContext';
 const PreviewCard = () => {
     const userProfile = useSelector((state: RootState) => state.profile.profile);
     const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
-    const { userLoggedIn } = useAuth()
+    const { currentUser } = useAuth()
     const router = useRouter()
 
     useEffect(() => {
-        if (userLoggedIn) {
+        if (!currentUser) {
             router.push('/auth/login');
         } else {
             return;
         }
-    }, [userLoggedIn, router]);
+    }, [currentUser, router]);
 
+    console.log(currentUser)
     return (<>
-        {userProfile ? <div className="w-[349px] min-h-[569px] h-auto absolute rounded-[24px] p-[56px_48px] top-[208px] left-[646px] z-10 mx-auto shadow-lg bg-bg-primary">
+        {userProfile && currentUser ? <div className="w-[349px] min-h-[569px] h-auto absolute rounded-[24px] p-[56px_48px] top-[208px] left-[646px] z-10 mx-auto shadow-lg bg-bg-primary">
             <div className="w-full h-[158px]">
                 {userProfile.profilePicture && (
                     <div className="w-[96px] h-[96px] rounded-full border-[4px] border-bg-btn mx-auto bg-[white]">

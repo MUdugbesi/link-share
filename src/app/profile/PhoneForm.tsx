@@ -28,7 +28,7 @@ const PhoneForm: React.FC<PhoneFormProps> = ({ profile }) => {
     }, [savedLink]);
 
     return (
-        <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px]">
+        <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px] hidden md:flex">
             <div className="bg-[url('/preview.svg')] h-[631px] w-[307px] mx-auto mt-[101.5px] relative">
                 <div className="flex flex-col w-[237px] h-[514px] mx-auto top-[65px] left-[34px] absolute gap-[56px]">
                     <div className="w-full h-[158px]">
