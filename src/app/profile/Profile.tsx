@@ -1,20 +1,34 @@
 "use client"
 
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import ProfileForm from './ProfileForm'
 import PhoneForm from './PhoneForm'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, } from 'react-redux';
 import { setUserProfile } from '@/store/Profile';
-import {AppDispatch } from "@/store";
+import { AppDispatch } from "@/store";
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/authContext';
 
 interface Profile {
     firstName: string;
     lastName: string;
     email: string;
     profilePicture?: File | null;
+
 }
 
 const Profile = () => {
+    const { userLoggedIn } = useAuth()
+    const router = useRouter()
+
+    useEffect(() => {
+        if (userLoggedIn) {
+            router.push('/auth/login');
+        } else {
+            return;
+        }
+    }, [userLoggedIn, router]);
+
     const dispatch = useDispatch<AppDispatch>();
 
 

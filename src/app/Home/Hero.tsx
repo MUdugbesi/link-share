@@ -60,7 +60,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-        if (!userLoggedIn) {
+        if (userLoggedIn) {
             router.push('/auth/login');
         } else {
             return;

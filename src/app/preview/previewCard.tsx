@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from "@/store";
 import FilePreview from '../profile/FilePreview';
 import SavedLinkCard from '@/components/SavedLinkCard';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/authContext';
 
 const PreviewCard = () => {
     const userProfile = useSelector((state: RootState) => state.profile.profile);
     const savedLinks = useSelector((state: RootState) => state.savedLink.savedLinks);
+    const { userLoggedIn } = useAuth()
+    const router = useRouter()
+
+    useEffect(() => {
+        if (userLoggedIn) {
+            router.push('/auth/login');
+        } else {
+            return;
+        }
+    }, [userLoggedIn, router]);
 
     return (<>
         {userProfile ? <div className="w-[349px] min-h-[569px] h-auto absolute rounded-[24px] p-[56px_48px] top-[208px] left-[646px] z-10 mx-auto shadow-lg bg-bg-primary">
