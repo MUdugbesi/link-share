@@ -63,17 +63,17 @@ export default function Home() {
         if (!userLoggedIn) {
             router.push('/auth/login');
         } else {
-            return
+            return;
         }
     }, [userLoggedIn, router]);
 
     return (
         <div className="flex flex-col md:grid md:grid-cols-1 lg:grid-cols-[560px_808px] gap-6 md:gap-8 lg:gap-12 h-auto justify-evenly p-4 lg:p-0">
             <div className="bg-bg-primary p-4 lg:p-6 rounded-2xl">
-                <div className="bg-[url('/preview.svg')] h-[300px] md:h-[400px] lg:h-[631px] w-full md:w-[307px] mx-auto mt-8 md:mt-16 lg:mt-[101.5px] relative">
+                <div className="bg-[url('/preview.svg')] h-[300px] md:h-[400px] lg:h-[631px] w-full md:w-[307px] mx-auto mt-8 md:mt-16 lg:mt-[101.5px] relative ">
                     <div className="flex flex-col w-full md:w-[237px] h-auto md:h-[514px] mx-auto top-16 md:top-[65px] absolute gap-4 md:gap-8 lg:gap-[56px]">
                         <div className="w-full h-24 md:h-[158px]"></div>
-                        <div className="flex flex-col w-full h-auto md:h-[300px] border gap-2 md:gap-4 lg:gap-[20px]">
+                        <div className="flex flex-col w-full h-auto md:h-[300px] gap-2 md:gap-4 lg:gap-[20px] ml-[36px]">
                             {savedLinks.map((link) => (
                                 <SavedLinkCard key={link.id} link={link} />
                             ))}

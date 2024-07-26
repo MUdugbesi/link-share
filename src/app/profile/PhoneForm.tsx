@@ -47,7 +47,7 @@ const PhoneForm: React.FC<PhoneFormProps> = ({ profile }) => {
                         </p>
                         <p className='text-center text-[black] text-[14px] font-[400]'>{profile.email}</p>
                     </div>
-                    <div className="flex flex-col w-full h-[300px] border gap-[20px]">
+                    <div className="flex flex-col w-full h-[300px] gap-[20px]">
                         {saved.map((link) => (
                             <SavedLinkCard key={link.id} link={link} />
                         ))}
