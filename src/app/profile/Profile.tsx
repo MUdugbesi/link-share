@@ -121,7 +121,7 @@ const Profile = () => {
         <>
             {userLoggedIn &&
                 <div className="w-[375px] md:w-[1440px] mx-auto">
-                    <div className="grid md:grid-cols-[560px_808px] gap-[24px] h-[858px] justify-evenly">
+                    <div className="grid md:grid-cols-[560px_808px] w-full gap-6 md:gap-8 h-[858px] justify-evenly">
                         <PhoneForm profile={savedProfile} />
                         <ProfileForm handleChange={handleChange} handleProfileSave={handleProfileSave} profile={profile} handleFileSelect={handleFileSelect} errors={errors} />
                     </div>
