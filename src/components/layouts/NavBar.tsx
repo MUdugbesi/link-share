@@ -51,7 +51,7 @@ const NavBar = () => {
                             <Image src={DevLogo} alt="Logo" width={26.67} height={26.67} />
                         </div>
                         <div className='w-[148px] h-[46px] flex gap-[16px]'>
-                            <Link href='/dashboard' className={`flex items-center justify-center gap-[8px] heading_S w-[74px] h-full rounded-lg ${pathname.includes('/home') ? ` bg-bg-btn-2  text-bg-btn` : `hover:bg-bg-btn-2`}`}><Image src={LinkIcon} alt='link' /></Link>
+                            <Link href='/dashboard' className={`flex items-center justify-center gap-[8px] heading_S w-[74px] h-full rounded-lg ${pathname.includes('/dashboard') ? ` bg-bg-btn-2  text-bg-btn` : `hover:bg-bg-btn-2`}`}><Image src={LinkIcon} alt='link' /></Link>
                             <Link href='/profile' className={`w-[74px] flex justify-center items-center gap-[8px] ${pathname.includes('/profile') ? `rounded-lg bg-bg-btn-2  text-bg-btn` : ``}`}>
                                 <Image src={ProfileIcon} alt='profile' />
                             </Link>
