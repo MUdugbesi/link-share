@@ -20,7 +20,6 @@ interface PhoneFormProps {
 
 const PhoneForm: React.FC<PhoneFormProps> = ({ profile }) => {
     const savedLink = useSelector((state: RootState) => state.savedLink.savedLinks);
-
     const [saved, setSaved] = useState(savedLink);
 
     useEffect(() => {
@@ -31,12 +30,12 @@ const PhoneForm: React.FC<PhoneFormProps> = ({ profile }) => {
         <div className="h-[834px] bg-bg-primary p-[24px] rounded-[12px] hidden md:flex">
             <div className="bg-[url('/preview.svg')] h-[631px] w-[307px] mx-auto mt-[101.5px] relative">
                 <div className="flex flex-col w-[237px] h-[514px] mx-auto top-[65px] left-[34px] absolute gap-[56px]">
-                    <div className="w-full h-[158px]">
+                    <div className="h-[158px]">
                         {profile.profilePicture && (
-                            <div className='w-[96px] h-[96px] rounded-full border-[4px] border-bg-btn mx-auto bg-[white]'>
+                            <div className='w-[96px] h-[96px] flex items-center rounded-full border-[4px] border-bg-btn mx-auto bg-[white]'>
                                 <FilePreview
                                     file={profile.profilePicture}
-                                    className='w-[96px] h-[96px] object-contain'
+                                    className='w-[96px] h-[96px] object-cover object-top rounded-full'
                                     width={96}
                                     height={96}
                                 />

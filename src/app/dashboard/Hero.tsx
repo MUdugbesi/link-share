@@ -12,6 +12,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
 
 interface Link {
     id: string;
@@ -39,6 +41,7 @@ export default function Home() {
         dispatch(addLink(newLink));
         setTempLinks(prevLinks => [...prevLinks, newLink]);
         setUrl("");
+        toast.success('Link added')
     };
 
     const handleSaveLinks = () => {
@@ -48,6 +51,7 @@ export default function Home() {
             });
             setTempLinks([]);
         }
+        toast('Link saved successfully')
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUrl(e.target.value);
@@ -56,6 +60,9 @@ export default function Home() {
     const handleRemoveLinks = (id: string) => {
         dispatch(removeFromPhone(id));
         dispatch(removeLink(id));
+
+        toast.error('Link removed')
+
     };
 
     useEffect(() => {

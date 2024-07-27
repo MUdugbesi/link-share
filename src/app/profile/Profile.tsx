@@ -112,6 +112,8 @@ const Profile = () => {
         if (valid) {
             setSavedProfile(profile)
             dispatch(setUserProfile(profile))
+            setProfile({email:'', lastName:'', firstName: ''})
+            toast.success('Profile Saved')
         }
     };
 

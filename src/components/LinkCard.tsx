@@ -21,10 +21,11 @@ interface LinkCardProps {
 }
 
 const LinkCard: React.FC<LinkCardProps> = ({ link, handleChange, handleSelect, handleRemoveLinks, selectedPlatform }) => {
+    const id = link.id;
     return (
         <div className="flex flex-col w-full md:h-[228px] h-auto gap-[24px] bg-bg-primary-2 mt-[20px] p-[20px] rounded-lg">
             <div className='w-full flex justify-between'>
-                <p>Link #{link.id}</p>
+                <p>Link #{id.slice(0, 2)}</p>
                 <span
                     onClick={() => handleRemoveLinks(link.id)}
                     className='cursor-pointer text-red-500 hover:text-red-700'
