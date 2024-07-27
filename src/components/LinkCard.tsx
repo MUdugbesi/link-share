@@ -22,7 +22,7 @@ interface LinkCardProps {
 
 const LinkCard: React.FC<LinkCardProps> = ({ link, handleChange, handleSelect, handleRemoveLinks, selectedPlatform }) => {
     return (
-        <div className="flex flex-col w-full h-[228px] gap-[24px] bg-bg-primary-2 mt-[20px] p-[20px] rounded-lg">
+        <div className="flex flex-col w-full md:h-[228px] h-auto gap-[24px] bg-bg-primary-2 mt-[20px] p-[20px] rounded-lg">
             <div className='w-full flex justify-between'>
                 <p>Link #{link.id}</p>
                 <span
