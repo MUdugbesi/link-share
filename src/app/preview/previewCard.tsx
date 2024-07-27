@@ -22,8 +22,8 @@ const PreviewCard = () => {
 
     console.log(currentUser)
     return (<>
-        {userProfile && currentUser ? <div className="md:w-[349px] min-h-[569px] h-auto absolute rounded-[24px] p-[56px_48px] top-[208px] left-[646px] z-10 mx-auto shadow-lg bg-bg-primary">
-            <div className="w-full h-[158px]">
+        {userProfile && currentUser ? <div className="md:w-[349px] w-[311px] min-h-[569px] h-auto absolute rounded-[24px] p-[56px_48px] md:top-[208px] top-[104px] md:left-[646px] z-10 mx-auto md:shadow-lg md:bg-bg-primary">
+            <div className="md:w-full h-[158px]">
                 {userProfile.profilePicture && (
                     <div className="w-[96px] h-[96px] rounded-full border-[4px] border-bg-btn mx-auto bg-[white]">
                         <FilePreview

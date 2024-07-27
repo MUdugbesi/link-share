@@ -64,7 +64,12 @@ const Profile = () => {
                 profilePicture: selectedFile
             }));
         } else {
-            toast("Size is over 2MB")
+            if (selectedFile && selectedFile?.type !== 'image/png' || selectedFile?.type !== 'image/jpg') {
+                toast("Wrong image type - upload the right type")
+            }
+            if (selectedFile && selectedFile?.size > 2000000) {
+                toast("Size is over 2MB")
+            }
         }
     };
 
