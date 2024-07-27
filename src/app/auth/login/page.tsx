@@ -7,7 +7,7 @@ import { AuthProvider } from '@/context/authContext';
 
 const Login = () => {
   return (
-    <div>
+    <div className='max-sm:w-[375px]'>
       <AuthProvider>
         <LoginForm />
       </AuthProvider>

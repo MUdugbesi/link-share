@@ -47,13 +47,13 @@ const LoginForm = () => {
     }
 
     return (
-        <div className="flex flex-col w-[311px] max-sm:mb-[80px] md:w-[476px] md:h-[573px] mx-auto gap-[51px] justify-between mt-[103px] md:mt-[206px]">
+        <div className="flex flex-col w-[90%] max-sm:mb-[80px] md:w-[476px] md:h-[573px] mx-auto gap-[51px] justify-between mt-[103px] md:mt-[206px]">
             <div className="flex w-[182.5px] h-[40px] justify-evenly mx-auto">
                 <Image src='/dev_logo.svg' alt="Logo" width={33} height={33} />
                 <Image src='/devlinks.svg' alt="Logo" width={135} height={26.25} />
             </div>
             <div className="flex flex-col h-[482px] w-full mx-auto rounded-[12px] bg-bg-primary justify-evenly">
-                <div className="h-[80px] md:w-[396px] mx-auto gap-[8px] flex flex-col">
+                <div className="h-[80px] md:w-[396px] mx-auto gap-[8px] flex flex-col max-sm:p-[4px]">
                     <h2 className="md:heading_M heading_M_">Login</h2>
                     <span className="body_M">Add your details below to get back into the app</span>
                 </div>
