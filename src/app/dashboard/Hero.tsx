@@ -67,7 +67,7 @@ export default function Home() {
     }, [userLoggedIn, router, currentUser]);
 
     return (
-        <div className="w-[1440px] mx-auto">
+        <div className="md:w-[1440px] mx-auto">
             <div className="flex flex-col md:grid md:grid-cols-1 lg:grid-cols-[560px_808px] gap-6 md:gap-8 h-auto justify-evenly p-4 lg:p-0">
                 <div className="bg-bg-primary p-4 lg:p-6 rounded-2xl lg:flex hidden">
                     <div className="bg-[url('/preview.svg')] h-[300px] md:h-[400px] lg:h-[631px] w-full md:w-[307px] mx-auto mt-8 md:mt-16 lg:mt-[101.5px] relative ">

@@ -60,8 +60,8 @@ const NavBar = () => {
                     </ul>
                 </nav>
                 :
-                <div className='w-[375px] h-[78px] flex rounded-bl-[32px] rounded-br-[32px] z-0 mx-auto'>
-                    <nav className='w-[311px] h-[78px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] flex items-center'>
+                <div className='w-[375px] h-[78px] rounded-bl-[32px] rounded-br-[32px] z-0 mx-auto flex md:hidden'>
+                    <nav className='w-[311px] h-[78px] mx-auto bg-bg-primary rounded-[12px] mt-[24px] mb-[24px] flex items-center mx-auto'>
                         <ul className='w-full h-[46px] flex justify-between gap-2'>
                             <Link href='/profile' className='flex items-center justify-center heading_S border rounded-lg border-bg-btn w-[159px] h-full text-bg-btn gap-[8px] hover:bg-bg-btn-2'>Back to Editor</Link>
                             <Link href='' className='flex items-center justify-center heading_S border rounded-lg bg-bg-btn w-[159px] h-full text-bg-primary  gap-[8px] hover:opacity-80'>Share Link</Link>
