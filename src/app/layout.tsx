@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 const instrument_Sans = Instrument_Sans({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${instrument_Sans.className} w-screen h-screen`}>
         {children}
+        <ToastContainer />
       </body>
     </html>
   );

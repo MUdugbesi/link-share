@@ -6,6 +6,7 @@ import React from 'react'
 import { Provider } from "react-redux";
 import { store } from "@/store";
 import { AuthProvider } from '@/context/authContext';
+import { ToastContainer } from 'react-toastify';
 
 const ProfilePage = () => {
     return (
@@ -14,6 +15,7 @@ const ProfilePage = () => {
                 <AuthProvider>
                     <NavBar />
                     <Profile />
+                    <ToastContainer />
                 </AuthProvider>
 
             </Provider>

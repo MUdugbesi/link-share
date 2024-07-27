@@ -8,6 +8,8 @@ import { setUserProfile } from '@/store/Profile';
 import { AppDispatch } from "@/store";
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 interface Profile {
     firstName: string;
@@ -62,7 +64,7 @@ const Profile = () => {
                 profilePicture: selectedFile
             }));
         } else {
-            console.log(selectedFile?.size);
+            toast("Size is over 2MB")
         }
     };
 

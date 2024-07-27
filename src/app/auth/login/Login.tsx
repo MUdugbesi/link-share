@@ -39,7 +39,7 @@ const LoginForm = () => {
             setIsSigningIn(true);
             await doSignInWithEmailAndPassword(values.email, values.password);
             toast.success('Login in successful')
-            router.push('/home')
+            router.push('/dashboard')
 
         } else {
             toast.error("Login failed. Please try again.")
